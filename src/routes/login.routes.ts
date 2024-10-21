@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import UserController from '../controllers/UserController';
+import UserController from '../controllers/user.controller';
 import validateLogin from '../middlewares/validateLogin';
 
 const userController = new UserController();

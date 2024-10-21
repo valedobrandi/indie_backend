@@ -1,5 +1,5 @@
 import { ServiceResponse } from '../../Interfaces/ServiceResponse';
-import schema from './schema';
+import schema from '../schema/schema';
 
 type ValidateLoginFields = { email: string, password: string };
 
