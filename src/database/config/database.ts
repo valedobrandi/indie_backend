@@ -1,7 +1,7 @@
 import { Options } from 'sequelize';
 
 const config: Options = {
-  dialect: 'PostgreSQL',
+  dialect: 'postgres',
   use_env_variable: process.env.DATABASE_URL || "",
   username: process.env.MYSQLUSER || 'root',
   password: process.env.MYSQLPASSWORD || '123456',
