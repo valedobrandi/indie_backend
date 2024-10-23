@@ -15,9 +15,8 @@
     "lint": "eslint ./src --ext .ts"
   },
   "engines": {
-  "node": "18.20.1"
-},
-
+    "node": "18.20.1"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -55,6 +54,7 @@
   },
   "dependencies": {
     "@sequelize/postgres": "^7.0.0-alpha.43",
+    "@types/lodash": "^4.17.5",
     "bcryptjs": "2.4.3",
     "cors": "2.8.5",
     "dotenv": "^16.4.5",
