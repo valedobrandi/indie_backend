@@ -1,8 +1,10 @@
 import * as express from 'express';
+import * as cors from 'cors';
 import 'express-async-errors';
 import router from './routes';
-
 import errorMiddleware from './middlewares/errorMiddleware';
+
+const URL_BACKEND = process.env.CORS_CONFIG || ''
 
 class App {
   public app: express.Express;
@@ -23,15 +25,10 @@ class App {
   }
 
   private config():void {
-    const accessControl: express.RequestHandler = (_req, res, next) => {
-      res.header('Access-Control-Allow-Origin', '*');
-      res.header('Access-Control-Allow-Methods', 'GET,POST,DELETE,OPTIONS,PUT,PATCH');
-      res.header('Access-Control-Allow-Headers', '*');
-      next();
-    };
 
+    const corsOptions = { origin: [URL_BACKEND, 'http://localhost:3000' ]};
     this.app.use(express.json());
-    this.app.use(accessControl);
+    this.app.use(cors(corsOptions));
   }
 
   private routes(): void {
