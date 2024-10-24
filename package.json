@@ -28,6 +28,7 @@
     "@types/cors": "2.8.12",
     "@types/express": "4.17.13",
     "@types/jsonwebtoken": "8.5.6",
+    "@types/lodash": "^4.17.5",
     "@types/mocha": "9.1.0",
     "@types/node": "16.11.7",
     "@types/sequelize": "4.28.10",
@@ -54,7 +55,6 @@
   },
   "dependencies": {
     "@sequelize/postgres": "^7.0.0-alpha.43",
-    "@types/lodash": "^4.17.5",
     "bcryptjs": "2.4.3",
     "cors": "2.8.5",
     "dotenv": "^16.4.5",
@@ -65,6 +65,8 @@
     "jsonwebtoken": "8.5.1",
     "mailtrap": "^3.4.0",
     "mysql2": "3.0.0",
+    "pg": "^8.13.1",
+    "pg-hstore": "^2.3.4",
     "sequelize": "6.25.5"
   }
 }

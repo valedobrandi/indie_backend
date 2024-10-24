@@ -1,16 +1,12 @@
 import { Options } from 'sequelize';
 
 const config: Options = {
+  host: process.env.MYSQLHOST || 'PostgresCont',
+  port: Number(process.env.MYSQLPORT) || 5432,
+  database: process.env.MYSQLDATABASE || 'subscribers',
   username: process.env.MYSQLUSER || 'root',
   password: process.env.MYSQLPASSWORD || '123456',
-  database: process.env.MYSQLDATABASE || 'indi_page',
-  host: process.env.MYSQLHOST || 'db',
-  port: Number(process.env.MYSQLPORT) || 3306,
-  dialect: 'mysql',
-  dialectOptions: {
-    timezone: 'Z',
-  },
-  logging: false,
+  dialect: 'postgres',
 }
 
 export = config;

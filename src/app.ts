@@ -3,6 +3,7 @@ import * as cors from 'cors';
 import 'express-async-errors';
 import router from './routes';
 import errorMiddleware from './middlewares/errorMiddleware';
+import sequelize from './database/models';
 
 const URL_BACKEND = process.env.CORS_CONFIG || ''
 
@@ -33,6 +34,16 @@ class App {
 
   private routes(): void {
     this.app.use(router);
+  }
+
+  public async assertDatabaseConnection(): Promise<void> {
+    try {
+      await sequelize.authenticate()
+      await sequelize.sync()
+      console.log('Connection has been established successfully.');
+    } catch (error) {
+      console.log('Unable to connect to the database:', error);
+    }
   }
 
   public start(PORT: string | number): void {
