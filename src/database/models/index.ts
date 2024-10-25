@@ -1,9 +1,8 @@
 import { Sequelize } from 'sequelize';
 import * as config from '../config/database';
 
-const sequelize = new Sequelize(`${process.env.DATABASE_URL}?sslmode=require`|| '', {
+const sequelize = new Sequelize(`${process.env.DATABASE_URL}`|| '', {
     dialect: 'postgres',
-    protocol: 'postgres',
     dialectOptions: {
         ssl: true,
         rejectUnauthorized: false
