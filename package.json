@@ -10,6 +10,7 @@
     "db:reset": "npx tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "build": "tsc --project tsconfig.json",
     "prestart": "npm run build && npx tsc",
+    "heroku-postbuild": "npm run build && npx tsc",
     "start": "node ./build/server.js",
     "dev": "tsnd --watch \"./src/**\" --transpile-only ./src/server.ts",
     "lint": "eslint ./src --ext .ts"
