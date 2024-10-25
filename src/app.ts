@@ -27,7 +27,10 @@ class App {
 
   private config():void {
 
-    const corsOptions = { origin: [URL_BACKEND, 'http://localhost:3000' ]};
+    const corsOptions = { 
+      origin: [URL_BACKEND, 'http://localhost:3000' ],
+      optionsSuccessStatus: 200
+    };
     this.app.use(express.json());
     this.app.use(cors(corsOptions));
   }
