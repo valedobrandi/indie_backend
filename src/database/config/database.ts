@@ -19,9 +19,9 @@ const config: Options = {
   password: password || '123456',
   dialect: 'postgres',
   dialectOptions: {
-    ssl: true,
+    ssl: {
     rejectUnauthorized: false
-  }
+  }}
 }
 
 export = config;
