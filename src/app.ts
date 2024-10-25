@@ -3,7 +3,7 @@ import * as cors from 'cors';
 import 'express-async-errors';
 import router from './routes';
 import errorMiddleware from './middlewares/errorMiddleware';
-import { Response } from 'express';
+import { Response, Request } from 'express';
 import sequelize from './database/models';
 
 const URL_BACKEND = process.env.CORS_CONFIG || ''
@@ -19,7 +19,7 @@ class App {
     this.routes();
 
     // Não remover essa rota
-    this.app.get('/', (_, res: Response) => res.status(200).json({ ok: true }));
+    this.app.get('/', (_: Request, res: Response) => res.status(200).json({ ok: true }));
 
     // Não remova esse middleware de erro, mas fique a vontade para customizá-lo.
     // Mantenha ele sempre como o último middleware a ser chamado.
