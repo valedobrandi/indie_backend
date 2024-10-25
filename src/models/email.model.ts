@@ -5,12 +5,22 @@ export default class EmailModel implements IEmailModel {
   private model = SequelizeEmail;
 
   async register(email: string): Promise<null> {
-    await this.model.create({ email });
-    return null;
+    try {
+      await this.model.create({ email });
+      return null;
+    } catch (error) {
+      console.log(error)
+      return null
+    }
   }
 
   async countSubscript(): Promise<number> {
-    const response = await this.model.count();
-    return response;
+    try {
+      const response = await this.model.count();
+      return response;
+    } catch (error) {
+      console.log(error)
+      return 0
+    }
   }
 }
