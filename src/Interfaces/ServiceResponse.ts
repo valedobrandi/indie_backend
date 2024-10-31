@@ -7,7 +7,8 @@ type ServiceResponseErrorType =
 | 'CONFLICT'
 | 'BAD_REQUEST'
 | 'SUCCESSFUL'
-| 'UNPROCESSABLE CONTENT';
+| 'UNPROCESSABLE_CONTENT'
+| 'OK';
 
 export type ServiceResponseError = {
   status: ServiceResponseErrorType,

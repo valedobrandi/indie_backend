@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer';
+import * as nodemailer from 'nodemailer';
 
 class MailTrap {
  private _transport = nodemailer.createTransport({
