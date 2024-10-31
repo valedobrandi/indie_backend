@@ -30,8 +30,8 @@ class App {
 
     const corsOptions = { 
       origin: [
-        "https://quiz-frontend-production-24b9.up.railway.app/quiz",
-        'https://www.stoicsoftwares.net/', 
+        "https://quiz-frontend-production-24b9.up.railway.app",
+        'https://www.stoicsoftwares.net', 
         'http://localhost:3000' 
       ],
       optionsSuccessStatus: 200
