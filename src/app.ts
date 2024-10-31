@@ -29,7 +29,11 @@ class App {
   private config():void {
 
     const corsOptions = { 
-      origin: [URL_BACKEND, 'http://localhost:3000' ],
+      origin: [
+        "https://quiz-frontend-production-24b9.up.railway.app/quiz",
+        'https://www.stoicsoftwares.net/', 
+        'http://localhost:3000' 
+      ],
       optionsSuccessStatus: 200
     };
     this.app.use(express.json());
