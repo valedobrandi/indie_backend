@@ -1,11 +1,11 @@
 import { NextFunction, Request, Response } from 'express';
 import mapStatusHTTP from '../utils/mapStatusHTTP';
-import EmailService from '../services/email.service';
+import SubscriberService from '../services/subscriber.service';
 
-export default class EmailController {
-  constructor(private emailService = new EmailService()) {}
+export default class SubscriberController {
+  constructor(private subscriberService = new SubscriberService()) {}
 
-  public async sendEmail(req: Request, res: Response, next: NextFunction) {
+  public async subscriberEmail(req: Request, res: Response, next: NextFunction) {
     try {
       const { email, message } = req.body;
 
@@ -13,7 +13,7 @@ export default class EmailController {
        return res.status(400).json({ message: 'Missing required fields' });
       }
 
-      const { status, data } = await this.emailService.sendEmail(email, message);
+      const { status, data } = await this.subscriberService.sendEmail(email, message);
       res.status(mapStatusHTTP(status)).json(data);
     } catch (error) {
       next(error);
@@ -22,7 +22,7 @@ export default class EmailController {
 
   public async countSubscribes(req: Request, res: Response, next: NextFunction) {
     try {
-      const { status, data } = await this.emailService.subscribes();
+      const { status, data } = await this.subscriberService.countSubscribes();
       res.status(mapStatusHTTP(status)).json(data);
     } catch (error) {
       next(error);

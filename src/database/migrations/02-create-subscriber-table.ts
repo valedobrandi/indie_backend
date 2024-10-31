@@ -1,10 +1,10 @@
 import { Model, QueryInterface, DataTypes } from 'sequelize';
-import { IEmail } from '../../Interfaces/emails/IEmails';
+import { ISubscriber } from '../../Interfaces/subscriber/ISubscriber';
 
 
 export default {
   up(queryInterface: QueryInterface) {
-    return queryInterface.createTable<Model<IEmail>>('emails', {
+    return queryInterface.createTable<Model<ISubscriber>>('subscribers', {
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -23,6 +23,6 @@ export default {
     });
   },
   down(queryInterface: QueryInterface) {
-    return queryInterface.dropTable('emails');
+    return queryInterface.dropTable('subscribers');
   },
 };

@@ -6,14 +6,14 @@ import {
 } from 'sequelize';
 import db from '.';
 
-class SequelizeEmail extends Model<InferAttributes<SequelizeEmail>,
-InferCreationAttributes<SequelizeEmail>> {
+class SequelizeSubscriber extends Model<InferAttributes<SequelizeSubscriber>,
+InferCreationAttributes<SequelizeSubscriber>> {
   declare id?: number;
-  declare email: string;
   declare createdAt?: Date;
+  declare email: string;
 }
 
-SequelizeEmail.init({
+SequelizeSubscriber.init({
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -31,9 +31,8 @@ SequelizeEmail.init({
   },
 }, {
   sequelize: db,
-  modelName: 'emails',
+  modelName: 'subscribers',
   timestamps: false,
-  underscored: true,
 });
 
-export default SequelizeEmail;
+export default SequelizeSubscriber;
