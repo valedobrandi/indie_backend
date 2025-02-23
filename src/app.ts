@@ -6,7 +6,6 @@ import errorMiddleware from './middlewares/errorMiddleware';
 import { Response, Request } from 'express';
 import sequelize from './database/models';
 
-const URL_BACKEND = process.env.CORS_CONFIG || ''
 
 class App {
   public app: express.Express;
@@ -30,9 +29,7 @@ class App {
 
     const corsOptions = { 
       origin: [
-        "https://quiz-frontend-production-24b9.up.railway.app",
-        'https://www.stoicsoftwares.net', 
-        'http://localhost:3000' 
+        'http://localhost:5432', 
       ],
       optionsSuccessStatus: 200
     };
