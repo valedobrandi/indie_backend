@@ -4,9 +4,12 @@ WORKDIR /app-backend
 
 COPY package*.json ./
 
-RUN npm install 
+RUN npm ci --omit=dev && npm cache clean --force
 
 COPY . .
+
+RUN useradd -m appuser
+USER appuser
 
 EXPOSE 3001
 
