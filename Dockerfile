@@ -9,9 +9,10 @@ RUN npm ci --omit=dev && npm cache clean --force
 COPY . .
 
 RUN useradd -m appuser
+RUN chown -R appuser:appuser /app-backend
 USER appuser
 
 EXPOSE 3001
 
-CMD  [ "npm", "run", "dev" ]
+CMD  [ "npm", "run", "start" ]
 
