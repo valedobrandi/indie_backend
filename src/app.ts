@@ -6,6 +6,7 @@ import errorMiddleware from './middlewares/errorMiddleware';
 import { Response, Request } from 'express';
 import sequelize from './database/models';
 
+
 class App {
   public app: express.Express;
 
@@ -41,6 +42,12 @@ class App {
   }
 
   public async assertDatabaseConnection(): Promise<void> {
+    try {
+      await sequelize.authenticate()
+      console.log('Connection has been established successfully.');
+    } catch (error) {
+      console.log('Unable to connect to the database:', error);
+    }
     try {
       await sequelize.authenticate()
       console.log('Connection has been established successfully.');
