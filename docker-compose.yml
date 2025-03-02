@@ -1,24 +1,30 @@
 services:
   node_app:
-    build: .
-    container_name: node_server
-    restart: unless-stopped
+    image: valedobrandi/node_app
     networks:
-      - nginx-default
+      - default-network
     ports:
       - "3001:3001"
     environment:
       - NODE_ENV=production
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
-      - DB_HOST=${DB_HOST}
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=postgres
+    secrets:
+      - postgres_user_secret
+      - postgres_password_secret
     deploy:
       resources:
         limits:
-          cpus: "0.5"  # Limits the container to 50% of a single CPU core
-          memory: "512M"  # Limits memory usage to 512MB
+          cpus: "0.5"
+          memory: "512M"
+
+secrets:
+  postgres_user_secret:
+    external: true
+  postgres_password_secret:
+    external: true
 
 networks:
-  nginx-default:
+  default-network:
     external: true
