@@ -14,6 +14,7 @@ services:
       - postgres_user_secret
       - postgres_password_secret
       - mailtrap_token_secret
+      - quiz_token_secret
     deploy:
       resources:
         limits:
@@ -27,6 +28,8 @@ secrets:
     external: true
   mailtrap_token_secret:
     external: true
+  quiz_token_secret:
+   external : true
 
 networks:
   default-network:

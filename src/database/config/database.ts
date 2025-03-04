@@ -1,13 +1,5 @@
 import { Options } from 'sequelize';
-import * as fs from 'fs';
-
-function readSecret(secretPath: string, defaultValue: string): string {
-  try {
-    return fs.readFileSync(secretPath, 'utf8').trim();
-  } catch (err) {
-    return defaultValue;
-  }
-}
+import readSecret from 'src/utils/readSecret';
 
 const config: Options = {
   host: process.env.DB_HOST || 'postgres',
