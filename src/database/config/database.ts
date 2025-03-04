@@ -11,7 +11,7 @@ function readSecret(secretPath: string, defaultValue: string): string {
 
 const config: Options = {
   host: process.env.DB_HOST || 'postgres',
-  port: Number(process.env.DB_PORT) as number,
+  port: Number(process.env.DB_PORT) || 3001,
   username: readSecret('/run/secrets/postgres_user_secret', 'defaultuser'),
   password: readSecret('/run/secrets/postgres_password_secret', 'defaultpassword'),
   database: process.env.DB_NAME || 'db',

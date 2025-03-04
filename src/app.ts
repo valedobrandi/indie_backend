@@ -6,7 +6,6 @@ import errorMiddleware from './middlewares/errorMiddleware';
 import { Response, Request } from 'express';
 import sequelize from './database/models';
 
-
 class App {
   public app: express.Express;
 
@@ -28,9 +27,9 @@ class App {
   private config():void {
 
     const corsOptions = { 
-      origin: [
-        'http://localhost:5432', 
-      ],
+      origin: 'https://www.stoicsoftwares.net',
+      methods: 'GET,POST,PUT,DELETE',
+      allowedHeaders: 'Content-Type,Authorization',
       optionsSuccessStatus: 200
     };
     this.app.use(express.json());
@@ -50,8 +49,8 @@ class App {
     }
   }
 
-  public start(PORT: string | number): void {
-    this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));
+  public start(PORT: number): void {
+    this.app.listen(PORT, "0.0.0.0", () => console.log(`Running on port ${PORT}`));
   }
 }
 
